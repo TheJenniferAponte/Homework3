@@ -1,7 +1,6 @@
 import sys
 
 def calculate(a, b, operation):
-    """Performs basic arithmetic operations"""
     try:
         a, b = int(a), int(b)
         if operation == "add":
