@@ -1,4 +1,6 @@
-from .commands import AddCommand, SubtractCommand, MultiplyCommand, DivideCommand
+class Calculator:
+    """Calculator class with minimal logic for debugging."""
+from calculator.commands import AddCommand, SubtractCommand, MultiplyCommand, DivideCommand
 
 class Calculator:
     """Calculator that executes commands."""
