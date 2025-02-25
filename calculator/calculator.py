@@ -1,5 +1,3 @@
-# calculator/calculator.py
-
 from calculator.commands import AddCommand, SubtractCommand, MultiplyCommand, DivideCommand
 
 class Calculator:
