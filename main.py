@@ -1,6 +1,14 @@
+import os
+from dotenv import load_dotenv
 from calculator.calculator import Calculator
 
+# Load environment variables
+load_dotenv()
+
 def repl():
+    environment = os.getenv("ENVIRONMENT", "production")
+    print(f"Running in {environment} mode")
+    
     print("Welcome to the interactive calculator!")
     print("Commands: add, subtract, multiply, divide, or 'exit' to quit.")
     
@@ -20,3 +28,4 @@ def repl():
 
 if __name__ == "__main__":
     repl()
+
