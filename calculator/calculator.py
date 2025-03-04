@@ -1,22 +1,29 @@
-class Calculator:
-    """Calculator class with minimal logic for debugging."""
-from calculator.commands import AddCommand, SubtractCommand, MultiplyCommand, DivideCommand
+import logging
+
+# Configure logging
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
 class Calculator:
-    """Calculator that executes commands."""
-    commands = {
-        "add": AddCommand(),
-        "subtract": SubtractCommand(),
-        "multiply": MultiplyCommand(),
-        "divide": DivideCommand(),
-    }
+    """Calculator class with logging"""
 
     @staticmethod
     def execute_command(command, a, b):
-        try:
-            a, b = float(a), float(b)
-            if command in Calculator.commands:
-                return Calculator.commands[command].execute(a, b)
-            return f"Error: Unknown command '{command}'"
-        except ValueError:
-            return "Error: Invalid number input"
+        logging.info(f"Executing command: {command} with values {a}, {b}")
+
+        if command == "divide":
+            if float(b) == 0:
+                logging.error("Attempted to divide by zero!")
+                raise ValueError("Cannot divide by zero")
+            return float(a) / float(b)
+
+        if command == "add":
+            return float(a) + float(b)
+
+        if command == "subtract":
+            return float(a) - float(b)
+
+        if command == "multiply":
+            return float(a) * float(b)
+
+        logging.warning(f"Unknown command: {command}")
+        return f"Error: Unknown command '{command}'"
